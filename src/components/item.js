@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import * as action from './test';
 import * as fun from './gen';
+import * as range from './range';
+import SetTest from './setTest';
 
 var fs = require('fs'); 
 
@@ -54,11 +56,26 @@ export default class Item extends Component {
         }).catch((err)=>{
             console.log(err);
         })
+
+        let arr = ['a','b','c'];
+        let iter = arr[Symbol.iterator]();
+
+        console.log(iter.next());
+        console.log(iter.next());
+        console.log(iter.next());
+        console.log(iter.next());
+
+
+        for(var value of range.rangeFun(0,3)){
+            console.log(value,"ppp")
+        }
         
+
         return (
             <div>
                 Test
                 <p></p>
+                <SetTest /> 
             </div>
         )
     }
