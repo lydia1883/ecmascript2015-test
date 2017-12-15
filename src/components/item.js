@@ -69,7 +69,12 @@ export default class Item extends Component {
         for(var value of range.rangeFun(0,3)){
             console.log(value,"ppp")
         }
+
         
+        for(let n of fun.fibonacci()) {
+            if(n > 1000) break;
+            console.log(n,"fib")
+        }
 
         return (
             <div>

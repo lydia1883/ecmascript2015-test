@@ -19,6 +19,18 @@ export const xFun = () => {
     })
 }
 
+export function* fibonacci () {  //斐波那契数列
+
+    let [prev,curr] = [0,1];
+    for(;;){
+        [prev,curr] = [curr,prev + curr];  //[p,c] = [1,1]
+        console.log(prev,curr)
+        yield curr;
+    }
+}
+
+
+
 
 var x = 1;
 var thunk = (params) => x + 5
@@ -42,4 +54,5 @@ export const axiosFun = async () =>{
         console.log(error)
     }
 } 
+
 
