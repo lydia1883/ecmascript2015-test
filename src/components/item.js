@@ -3,6 +3,9 @@ import * as action from './test';
 import * as fun from './gen';
 import * as range from './range';
 import SetTest from './setTest';
+import * as elementAll from './reactTest';
+
+import Clock from './Clock';
 
 var fs = require('fs'); 
 
@@ -76,11 +79,89 @@ export default class Item extends Component {
             console.log(n,"fib")
         }
 
+        const element = (
+            <h1 className="greeting">
+                Hello World
+            </h1>
+        );
+
+        let person = {
+            sayName: function(){
+                console.log(this.name)
+            },
+            get firstName() {
+                return "Nicholas"
+            }
+        }
+
+        console.log(person.sayName.name);
+        console.log(person.firstName);
+
+        var target = {};
+        console.log(Object.assign(target,{a:1},{b:2}))
+
+        console.log(Object.create({A:666}))
+        let ccc = Object.create({A:666});
+        console.log(ccc.__proto__)
+
+
+        console.log(Symbol('foo'),Symbol('fii'));
+
+        const COLOR_RED = Symbol('red');
+        const COLOR_GREEN = Symbol('green');
+
+        function getComplement(color){
+            switch(color){
+                case COLOR_RED:
+                return COLOR_GREEN;
+                case COLOR_GREEN:
+                return COLOR_RED
+                default:
+                throw new Error('Undefined color');
+            }
+        }
+
+        var shapeType = {
+            triangle: Symbol()
+        };
+
+        function getArea ( shape , options ){
+            var area = 0;
+            switch(shape) {
+                case shapeType.triangle:
+                area = 0.5 * options.width * options.height;
+                break;
+            }
+            return area;
+        }
+
+        console.log( getArea( shapeType.triangle, { width: 100, height: 100 } ) )
+
+        console.log( getComplement(COLOR_GREEN) );
+
+        var objSym = {};
+
+        var foo = Symbol('foo');
+
+        Object.defineProperty(objSym,foo,{
+            value: 1
+        })
+
+        for(var i in objSym){
+            console.log(i,"i")
+        }
+
+        console.log(Object.getOwnPropertySymbols(objSym))
+        console.log(objSym);
+
+
         return (
             <div>
                 Test
                 <p></p>
                 <SetTest /> 
+                <Clock increment = { 1 }/>
+            
             </div>
         )
     }
