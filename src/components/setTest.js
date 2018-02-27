@@ -22,7 +22,7 @@ export default class SetTest extends Component{
 
         let set = new Set([{id:1},{id:2},{id:3}]);
         console.log([...set],"841681681")
-        set = new Set( [...set].filter( x => (x.id % 2) == 0 ) )
+        set = new Set( [...set].filter( x => (x.id % 2) === 0 ) )
 
         console.log([...set],"841681681")
 

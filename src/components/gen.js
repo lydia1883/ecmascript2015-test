@@ -30,8 +30,6 @@ export function* fibonacci () {  //斐波那契数列
 }
 
 
-
-
 var x = 1;
 var thunk = (params) => x + 5
 export var f = () => thunk(x) * 2;

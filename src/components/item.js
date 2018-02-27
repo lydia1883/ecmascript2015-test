@@ -4,8 +4,10 @@ import * as fun from './gen';
 import * as range from './range';
 import SetTest from './setTest';
 import * as elementAll from './reactTest';
-
+import ArrTest from './arrayTest'
 import Clock from './Clock';
+
+import StyleCom from './styleComponent'
 
 var fs = require('fs'); 
 
@@ -161,6 +163,9 @@ export default class Item extends Component {
                 <p></p>
                 <SetTest /> 
                 <Clock increment = { 1 }/>
+                <ArrTest />
+
+                <StyleCom/>
             
             </div>
         )
